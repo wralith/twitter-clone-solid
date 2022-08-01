@@ -1,3 +1,6 @@
+import { Component } from "solid-js"
+import TweetBarBottomBar from "./TweetBarBottomBar"
+
 const TweetBar = () => {
   return (
     <div class=" border-b border-gray-600 p-4 pt-16">
@@ -40,26 +43,6 @@ const WhoCanReplyDropdown = () => {
   )
 }
 
-const TweetBarBottomBar = () => {
-  return (
-    <div class="flex justify-between py-2 items-center">
-      <div class="flex gap-2">
-        <TweetBarBottomBarIcons icon="M" />
-        <TweetBarBottomBarIcons icon="G" />
-        <TweetBarBottomBarIcons icon="E" />
-        <TweetBarBottomBarIcons icon="L" />
-      </div>
-      <button class="bg-primary rounded-full p-3 py-1">Tweet</button>
-    </div>
-  )
-}
 
-const TweetBarBottomBarIcons = (props: any) => {
-  return (
-    <div class="text-primary text-center rounded-full w-8 h-8 p-1 hover:bg-gray-600">
-      {props.icon}
-    </div>
-  )
-}
 
 export default TweetBar

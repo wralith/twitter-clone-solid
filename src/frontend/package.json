@@ -19,6 +19,7 @@
   },
   "dependencies": {
     "daisyui": "^2.20.0",
+    "solid-icons": "^1.0.1",
     "solid-js": "^1.4.7"
   }
 }

@@ -9,9 +9,9 @@ const Tweet = () => {
         </div>
         <div class="flex flex-col">
           <div class="pb-2 flex gap-2">
-            <a class="font-bold text-primary-content">Nickname</a>
-            <a>@nickname</a>
-            <p>1h</p>
+            <a class="font-bold text-primary">Nickname</a>
+            <a class="opacity-60">@nickname</a>
+            <p class="opacity-40">1h</p>
           </div>
           <div>
             This is the dummy tweet, Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis,
