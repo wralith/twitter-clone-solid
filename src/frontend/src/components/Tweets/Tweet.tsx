@@ -1,9 +1,11 @@
+import TweetBottomBar from "./TweetBottomBar"
+
 const Tweet = () => {
   return (
-    <div class=" border-b border-gray-600 p-4">
+    <div class=" border-b border-gray-600 p-4 hover:bg-base-100">
       <div class="flex gap-2">
         <div>
-          <div class="w-14 h-14">
+          <div class="w-14 h-14 mr-2">
             <img class="rounded-full" src="https://placeimg.com/192/192/people" />
           </div>
         </div>
@@ -20,17 +22,6 @@ const Tweet = () => {
           <TweetBottomBar />
         </div>
       </div>
-    </div>
-  )
-}
-
-const TweetBottomBar = () => {
-  return (
-    <div class="flex gap-4 mt-2">
-      <a>Reply</a>
-      <a>Retweet</a>
-      <a>Like</a>
-      <a>Share</a>
     </div>
   )
 }

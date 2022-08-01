@@ -11,7 +11,7 @@ const TweetBarBottomBar = () => {
         <TweetBarBottomBarIcons icon={<BiRegularSmile size={24} />} />
         <TweetBarBottomBarIcons icon={<BiRegularLocationPlus size={24} />} />
       </div>
-      <button class="bg-primary rounded-full p-3 py-1">Tweet</button>
+      <button class="bg-primary text-primary-content rounded-full p-3 py-1 hover:bg-primary-focus transition-colors">Tweet</button>
     </div>
   )
 }
