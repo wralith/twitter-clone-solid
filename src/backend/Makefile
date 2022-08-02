@@ -9,5 +9,8 @@ migrate_up:
 migrate_down:
 	migrate -path db/migrations -database "postgresql://root:password@localhost:5432/twitter?sslmode=disable" -verbose down
 
+sqlc:
+	sqlc generate
+
 .PHONY:
 	createdb dropdb migrate_up migrate_down
