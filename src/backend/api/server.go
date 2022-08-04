@@ -32,6 +32,10 @@ func NewServer(store db.Store) *Server {
 
 	router.POST("/users", server.createUser)
 	router.GET("/users/:username", server.getUser)
+	router.GET("/:id/tweets", server.listUsersTweets) // TODO: Find better way
+
+	router.POST("/tweets", server.createTweet)
+	router.GET("/tweets/:id", server.getTweet)
 
 	server.router = router
 	return server

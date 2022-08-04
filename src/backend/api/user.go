@@ -31,12 +31,11 @@ func (s *Server) createUser(c echo.Context) (err error) {
 }
 
 type getUserRequest struct {
-	Username string `json:"username" validate:"required,gt=3"`
+	Username string `json:"username" param:"username" validate:"required,gt=3"`
 }
 
 func (s *Server) getUser(c echo.Context) (err error) {
 	var req getUserRequest
-	req.Username = c.Param("username")
 	if err = c.Bind(&req); err != nil {
 		return echo.NewHTTPError(http.StatusBadRequest, errorResponse(err))
 	}
