@@ -11,47 +11,48 @@ import {
 } from "solid-icons/hi"
 import { BsTwitter } from "solid-icons/bs"
 import { FiFeather } from "solid-icons/fi"
-
+import { NavLink, Router } from "@solidjs/router"
+/*@once*/
 const LeftSidebar = () => {
   return (
-    <aside class="fixed bg-base-300 px-3 min-h-full border-r border-gray-600">
-      <ul>
-        <MainIcon icon={<BsTwitter size={30} />} />
-        <Icon icon={<HiSolidHome size={30} />} />
-        <Icon icon={<HiOutlineSearch size={30} />} />
-        <Icon icon={<HiOutlineBell size={30} />} />
-        <Icon icon={<HiOutlineMail size={30} />} />
-        <Icon icon={<HiOutlineBookmark size={30} />} />
-        <Icon icon={<HiOutlineClipboardList size={30} />} />
-        <Icon icon={<HiOutlineUser size={30} />} />
-        <Icon icon={<HiOutlineDotsCircleHorizontal size={30} />} />
-        <SendTweetIcon icon={<FiFeather size={30} />} />
-      </ul>
-    </aside>
+    <div class="flex xl:justify-end m-auto lg:pr-10">
+        <nav class="md:w-1/2">
+          <NavLink href="/home">
+            <Icon icon={<BsTwitter size={30} />} link="/home" />
+          </NavLink>
+          <NavLink href="/home" activeClass="nav-active">
+            <Icon icon={<HiSolidHome size={30} />} text="Home" />
+          </NavLink>
+          <Icon icon={<HiOutlineSearch size={30} />} text="Explore" />
+          <Icon icon={<HiOutlineBell size={30} />} text="Notifications" />
+          <Icon icon={<HiOutlineMail size={30} />} text="Messages" />
+          <Icon icon={<HiOutlineBookmark size={30} />} text="Bookmarks" />
+          <Icon icon={<HiOutlineClipboardList size={30} />} text="Lists" />
+          <NavLink href="/users/1" activeClass="nav-active">
+            <Icon icon={<HiOutlineUser size={30} />} text="Profile" />
+          </NavLink>
+          <Icon icon={<HiOutlineDotsCircleHorizontal size={30} />} text="More" />
+          <SendTweetIcon icon={<FiFeather size={30} />} text="Tweet" />
+        </nav>
+    </div>
   )
 }
 
-const MainIcon: Component<any> = ({ icon }) => {
+const Icon: Component<any> = ({ icon, text, link }) => {
   return (
-    <li class="text-base-content w-12 h-12 m-2 mb-6 justify-center items-center flex rounded-full hover:bg-gray-700 cursor-pointer">
+    <div class="w-fit h-12 m-2 px-4 py-1 justify-center items-center flex rounded-full hover:bg-gray-700 cursor-pointer gap-3">
       {icon}
-    </li>
+      <p class="text-xl hidden xl:flex">{text}</p>
+    </div>
   )
 }
 
-const Icon: Component<any> = ({ icon }) => {
+const SendTweetIcon: Component<any> = ({ icon, text }) => {
   return (
-    <li class="text-base-content w-12 h-12 m-2 justify-center items-center flex rounded-full hover:bg-gray-700 cursor-pointer">
+    <div class="text-white bg-blue-400 w-fit p-4 m-2 mt-6 mb-4 justify-center items-center flex rounded-full hover:bg-blue-500 cursor-pointer gap-3 xl:w-full">
       {icon}
-    </li>
-  )
-}
-
-const SendTweetIcon: Component<any> = ({ icon }) => {
-  return (
-    <li class="text-white bg-blue-400 w-14 h-14 m-2 mt-6 mb-4 justify-center items-center flex rounded-full hover:bg-blue-500 cursor-pointer">
-      {icon}
-    </li>
+      <p class="text-xl hidden xl:flex">{text}</p>
+    </div>
   )
 }
 

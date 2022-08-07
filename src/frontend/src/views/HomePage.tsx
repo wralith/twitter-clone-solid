@@ -1,11 +1,11 @@
+import MainViewLayout from "../components/MainView/MainViewLayout"
+import LeftSidebar from "../components/UI/Layout/LeftSidebar"
 import MainLayout from "../components/UI/Layout/MainLayout"
 
 const HomePage = () => {
   return (
     <MainLayout>
-      <div>
-        <h1>Hello world</h1>
-      </div>
+      <MainViewLayout />
     </MainLayout>
   )
 }

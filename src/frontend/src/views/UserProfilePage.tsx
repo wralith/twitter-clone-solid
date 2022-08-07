@@ -1,8 +1,11 @@
+import LeftSidebar from "../components/UI/Layout/LeftSidebar"
+import MainLayout from "../components/UI/Layout/MainLayout"
+
 const UserProfilePage = () => {
   return (
-    <div>
+    <MainLayout>
       <h1>User Profile Page</h1>
-    </div>
+    </MainLayout>
   )
 }
 

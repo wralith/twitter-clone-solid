@@ -1,16 +1,15 @@
-import { Component } from "solid-js"
 import TweetBarBottomBar from "./TweetBarBottomBar"
 
 const TweetBar = () => {
   return (
-    <div class=" border-b border-gray-600 p-4 pt-16">
+    <div class=" border-b border-gray-600 p-4">
       <div class="flex gap-2">
         <div>
           <div class="w-14 h-14">
             <img class="rounded-full" src="https://placeimg.com/192/192/people" />
           </div>
         </div>
-        <div>
+        <div class="w-full">
           <div class="border-b pb-2 border-gray-600">
             <input type="text" placeholder="What's Happening?" class="input ghost w-full text-xl" />
             <WhoCanReplyDropdown />
