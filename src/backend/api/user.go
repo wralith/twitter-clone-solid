@@ -6,10 +6,14 @@ import (
 	"net/http"
 
 	"github.com/labstack/echo/v4"
+	db "github.com/wralith/twitter-clone/db/sqlc"
 )
 
+// TODO: Hash!!
 type createUserRequest struct {
 	Username string `json:"username" validate:"required,gt=3"`
+	Email    string `json:"email" validate:"required,email"`
+	Password string `json:"password" validate:"min=7"`
 }
 
 func (s *Server) createUser(c echo.Context) (err error) {
@@ -22,7 +26,13 @@ func (s *Server) createUser(c echo.Context) (err error) {
 		return echo.NewHTTPError(http.StatusBadRequest, errorResponse(err))
 	}
 
-	user, err := s.store.CreateUser(context.Background(), req.Username)
+	arg := db.CreateUserParams{
+		Username:       req.Username,
+		Email:          req.Email,
+		HashedPassword: req.Password,
+	}
+
+	user, err := s.store.CreateUser(context.Background(), arg)
 	if err != nil {
 		return echo.NewHTTPError(http.StatusInternalServerError, errorResponse(err))
 	}

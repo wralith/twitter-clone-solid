@@ -1,6 +1,11 @@
 CREATE TABLE "users" (
   "id" bigserial PRIMARY KEY,
   "username" varchar UNIQUE NOT NULL,
+  "email" varchar UNIQUE NOT NULL,
+  "hashed_password" varchar NOT NULL,
+  "profile_picture_url" varchar NOT NULL DEFAULT 'https://picsum.photos/seed/picsum/200/200',
+  "header_picture_url" varchar NOT NULL DEFAULT 'https://picsum.photos/seed/picsum/600/200',
+  "bio_text" varchar NOT NULL DEFAULT '',
   "favorites" int NOT NULL DEFAULT 0,
   "followers" int NOT NULL DEFAULT 0,
   "following" int NOT NULL DEFAULT 0,
@@ -87,10 +92,3 @@ ADD FOREIGN KEY ("tweet_id") REFERENCES "tweets" ("id") MATCH FULL ON UPDATE CAS
 
 ALTER TABLE "retweets"
 ADD FOREIGN KEY ("retweet_id") REFERENCES "tweets" ("id") MATCH FULL ON UPDATE CASCADE ON DELETE CASCADE;
-
--- users 
-ALTER TABLE users
-ADD CONSTRAINT "mentions_count" CHECK (mentions >= 0);
-
-ALTER TABLE users
-ADD CONSTRAINT "tweets_count" CHECK (tweets >= 0);

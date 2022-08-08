@@ -33,3 +33,7 @@ func RandomString(n int) string {
 func RandomUsername() string {
 	return RandomString(4)
 }
+
+func RandomEmail() string {
+	return RandomString(4) + "@mail.com"
+}
