@@ -1,4 +1,4 @@
-import type { Component } from "solid-js"
+import { Component, lazy } from "solid-js"
 
 import { Routes, Route } from "@solidjs/router"
 import HomePage from "./views/HomePage"
@@ -10,7 +10,7 @@ const App: Component = () => {
     <Routes>
       <Route path="/" component={LandingPage} />
       <Route path="/home" component={HomePage} />
-      <Route path="/users/:id" component={UserProfilePage} />
+      <Route path="/users/:username" component={lazy(() => import("./views/UserProfilePage"))} />
     </Routes>
   )
 }

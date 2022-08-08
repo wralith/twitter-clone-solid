@@ -28,7 +28,7 @@ const LeftSidebar = () => {
           <Icon icon={<HiOutlineMail size={30} />} text="Messages" />
           <Icon icon={<HiOutlineBookmark size={30} />} text="Bookmarks" />
           <Icon icon={<HiOutlineClipboardList size={30} />} text="Lists" />
-          <NavLink href="/users/1" activeClass="nav-active">
+          <NavLink href="/users/test" activeClass="nav-active">
             <Icon icon={<HiOutlineUser size={30} />} text="Profile" />
           </NavLink>
           <Icon icon={<HiOutlineDotsCircleHorizontal size={30} />} text="More" />

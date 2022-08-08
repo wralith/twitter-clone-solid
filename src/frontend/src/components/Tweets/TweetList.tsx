@@ -9,7 +9,6 @@ const TweetList = () => {
       <Tweet />
       <Tweet />
       <Tweet />
-      <Tweet />
     </div>
   )
 }
