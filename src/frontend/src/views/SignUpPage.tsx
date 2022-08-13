@@ -1,12 +1,16 @@
 import { createSignal } from "solid-js"
 import Modal from "../components/UI/Modal"
+import axios from "axios"
+import { useNavigate } from "@solidjs/router"
 
 const SignUpPage = () => {
   const [username, setUsername] = createSignal("")
   const [email, setEmail] = createSignal("")
   const [password, setPassword] = createSignal("")
 
-  const handleSubmit = (e:Event): void => {
+  const navigate = useNavigate()
+
+  const handleSubmit = (e: Event): void => {
     e.preventDefault()
     const dataToSignUp = {
       username: username(),
@@ -14,7 +18,11 @@ const SignUpPage = () => {
       password: password()
     }
 
-    console.log(dataToSignUp)
+    axios.post("http://localhost:8080/users", dataToSignUp).then((res) => {
+      if (res.status === 200) {
+        navigate(`/users/${username()}`)
+      }
+    })
   }
 
   return (
@@ -60,7 +68,9 @@ const SignUpPage = () => {
             />
           </label>
         </div>
-        <button onclick={handleSubmit} class="btn mt-20">Register</button>
+        <button onclick={handleSubmit} class="btn mt-20">
+          Register
+        </button>
         <a class="link mt-10">Forgot your password?</a>
       </div>
     </Modal>

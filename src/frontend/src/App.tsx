@@ -3,7 +3,6 @@ import { Component, lazy } from "solid-js"
 import { Routes, Route } from "@solidjs/router"
 import HomePage from "./views/HomePage"
 import LandingPage from "./views/LandingPage"
-import UserProfilePage from "./views/UserProfilePage"
 import SignUpPage from "./views/SignUpPage"
 
 const App: Component = () => {
